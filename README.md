@@ -1,7 +1,7 @@
 ProtoCentral ADS1292R ECG/respiration Arduino Library
 ================================
 
-[Dont have it yet? But one here: ADS1292R ECG/Respiration Shield for Arduino- v2 (PC-4128)](https://protocentral.com/product/ads1292r-ecg-respiration-shield-for-arduino-v2/)
+[Don't have it yet? Buy one here: ADS1292R ECG/Respiration Shield for Arduino- v2 (PC-4128)](https://protocentral.com/product/ads1292r-ecg-respiration-shield-for-arduino-v2/)
 
 [![bob](docs/img/ads1292r_breakout.jpg)  
 Dont have it yet? But one here: ADS1292R ECG/Respiration Breakout for Arduino- v3 (PC-4116)](https://protocentral.com/product/ads1292r-ecg-respiration-breakout-kit/)
