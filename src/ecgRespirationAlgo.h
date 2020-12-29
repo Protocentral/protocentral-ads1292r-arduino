@@ -30,7 +30,7 @@ class ecg_respiration_algorithm
     void RESP_Algorithm_Interface(int16_t CurrSample,volatile uint8_t *RespirationRate);
     
   private:
-    void QRS_process_buffer(volatile uint8_t *Heart_rate)
+    void QRS_process_buffer(volatile uint8_t *Heart_rate);
     void QRS_check_sample_crossing_threshold( uint16_t scaled_result,volatile uint8_t *Heart_rate);
     void Respiration_Rate_Detection(int16_t Resp_wave,volatile uint8_t *RespirationRate);
 

@@ -5,6 +5,9 @@
 //   Copyright (c) 2017 ProtoCentral
 //   Heartrate and respiration computation based on original code from Texas Instruments
 //
+//   This example plots ECG and respiartion wave through protocentral_openview processing GUI.
+//   GUI URL: https://github.com/Protocentral/protocentral_openview.git
+//
 //   This software is licensed under the MIT License(http://opensource.org/licenses/MIT).
 //
 //   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
@@ -59,18 +62,18 @@ void setup()
   delay(2000);
 
   SPI.begin();
-  SPI.setBitOrder(MSBFIRST); 
+  SPI.setBitOrder(MSBFIRST);
   //CPOL = 0, CPHA = 1
   SPI.setDataMode(SPI_MODE1);
   // Selecting 1Mhz clock for SPI
   SPI.setClockDivider(SPI_CLOCK_DIV16);
-  
+
   pinMode(ADS1292_DRDY_PIN, INPUT);
   pinMode(ADS1292_CS_PIN, OUTPUT);
   pinMode(ADS1292_START_PIN, OUTPUT);
   pinMode(ADS1292_PWDN_PIN, OUTPUT);
 
-  Serial.begin(115200); 
+  Serial.begin(115200);
   ADS1292R.ads1292_Init(ADS1292_CS_PIN,ADS1292_PWDN_PIN,ADS1292_START_PIN);
   Serial.println("Initiliziation is done");
 }
@@ -79,24 +82,24 @@ void loop()
 {
   ads1292_output_values ecg_respiration_values;
   boolean ret = ADS1292R.ads1292_ecg_and_respiration_samples(ADS1292_DRDY_PIN,ADS1292_CS_PIN,&ecg_respiration_values);
-  
+
   if (ret == true)
   {
-    ecg_wave_buff = (int16_t)(ecg_respiration_values.s_Daq_Vals[1] >> 8) ;  // ignore the lower 8 bits out of 24bits 
-    res_wave_buff = (int16_t)(ecg_respiration_values.sresultTempResp>>8) ; 
-    
-    if(ecg_respiration_values.leadoff_detected == false) 
+    ecg_wave_buff = (int16_t)(ecg_respiration_values.s_Daq_Vals[1] >> 8) ;  // ignore the lower 8 bits out of 24bits
+    res_wave_buff = (int16_t)(ecg_respiration_values.sresultTempResp>>8) ;
+
+    if(ecg_respiration_values.leadoff_detected == false)
     {
       ECG_RESPIRATION_ALGORITHM.ECG_ProcessCurrSample(&ecg_wave_buff, &ecg_filterout);   // filter out the line noise @40Hz cutoff 161 order
       ECG_RESPIRATION_ALGORITHM.QRS_Algorithm_Interface(ecg_filterout,&global_HeartRate); // calculate
-      //resp_filterout = ECG_RESPIRATION_ALGORITHM.Resp_ProcessCurrSample(res_wave_buff); 
+      //resp_filterout = ECG_RESPIRATION_ALGORITHM.Resp_ProcessCurrSample(res_wave_buff);
       //ECG_RESPIRATION_ALGORITHM.RESP_Algorithm_Interface(resp_filterout,&global_RespirationRate);
-    
+
     }else{
       ecg_filterout = 0;
       resp_filterout = 0;
     }
-    
+
     DataPacketHeader[0] = CES_CMDIF_PKT_START_1 ;   // Packet header1 :0x0A
     DataPacketHeader[1] = CES_CMDIF_PKT_START_2;    // Packet header2 :0xFA
     DataPacketHeader[2] = (uint8_t) (data_len);     // data length
@@ -107,14 +110,14 @@ void loop()
     DataPacketHeader[7] = res_wave_buff;
     DataPacketHeader[8] = res_wave_buff >> 8;
 
-    DataPacketHeader[19] = global_RespirationRate; 
+    DataPacketHeader[19] = global_RespirationRate;
     DataPacketHeader[21] = global_HeartRate;
     DataPacketHeader[25]= CES_CMDIF_PKT_STOP_1;   // Packet footer1:0x00
     DataPacketHeader[26]= CES_CMDIF_PKT_STOP_2 ;   // Packet footer2:0x0B
-   
+
     for (int i = 0; i < 27; i++)
     {
       Serial.write(DataPacketHeader[i]);     // transmit the data over USB
-    } 
+    }
   }
 }
