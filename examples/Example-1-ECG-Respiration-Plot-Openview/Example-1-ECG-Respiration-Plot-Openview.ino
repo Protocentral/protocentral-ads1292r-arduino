@@ -73,7 +73,7 @@ void setup()
   pinMode(ADS1292_START_PIN, OUTPUT);
   pinMode(ADS1292_PWDN_PIN, OUTPUT);
 
-  Serial.begin(115200);
+  Serial.begin(57600);
   ADS1292R.ads1292_Init(ADS1292_CS_PIN,ADS1292_PWDN_PIN,ADS1292_START_PIN);
   Serial.println("Initiliziation is done");
 }

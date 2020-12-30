@@ -60,7 +60,7 @@ void setup()
   pinMode(ADS1292_CS_PIN, OUTPUT);    //7
   pinMode(ADS1292_START_PIN, OUTPUT);  //5
   pinMode(ADS1292_PWDN_PIN, OUTPUT);  //4
-  Serial.begin(115200);  // Baud rate for serial communica
+  Serial.begin(57600);  // Baud rate for serial communica
   ADS1292R.ads1292_Init(ADS1292_CS_PIN,ADS1292_PWDN_PIN,ADS1292_START_PIN);  //initalize ADS1292 slave
   Serial.println("Initiliziation is done");
 }
