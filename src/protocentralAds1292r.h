@@ -3,13 +3,13 @@
 //   Arduino Library for ADS1292R Shield/Breakout
 //
 //   Copyright (c) 2017 ProtoCentral
-//   
-//   This software is licensed under the MIT License(http://opensource.org/licenses/MIT). 
-//   
-//   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT 
-//   NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
-//   IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
-//   WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+//
+//   This software is licensed under the MIT License(http://opensource.org/licenses/MIT).
+//
+//   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+//   NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+//   IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+//   WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 //   SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 //   Requires g4p_control graphing library for processing.  Built on V4.1
@@ -30,7 +30,7 @@
                       //first byte 010r rrrr (2xh)(2) - second byte 000n nnnn(2)
 #define START	0x08		//Start/restart (synchronize) conversions
 #define STOP	0x0A		//Stop conversion
-#define RDATAC 0x10		//Enable Read Data Continuous mode. 
+#define RDATAC 0x10		//Enable Read Data Continuous mode.
 
 //This mode is the default mode at power-up.
 #define SDATAC 0x11		//Stop Read Data Continuously mode
@@ -57,28 +57,29 @@
 #define  CES_CMDIF_PKT_STOP_2    0x0B
 
 typedef struct Record{
-  volatile signed long s_Daq_Vals[8];
-  boolean leadoff_detected = true;
+  volatile signed long sDaqVals[8];
+  boolean leadoffDetected = true;
   signed long sresultTempResp;
-}ads1292_output_values;
+}ads1292OutputValues;
 
 class ads1292r
 {
   public:
-    boolean ads1292_ecg_and_respiration_samples(const int data_ready,const int chip_select,ads1292_output_values *ecg_respiration_values);
-    static void ads1292_Init(const int chip_select,const int pwdn_pin,const int start_pin);
-    static void ads1292_Reset(const int pwdn_pin);
-	  static void ads1292_Reg_Write (unsigned char READ_WRITE_ADDRESS, unsigned char DATA,const int chip_select);
-	  static void ads1292_Reg_Read (unsigned char READ_WRITE_ADDRESS);
-    static void ads1292_SPI_Command_Data(unsigned char data_in,const int chip_select);
-    static void ads1292_Disable_Start(const int start_pin);
-    static void ads1292_Enable_Start(const int start_pin);
-    static void ads1292_Hard_Stop (const int start_pin);
-    static void ads1292_Start_Data_Conv_Command (const int chip_select);
-    static void ads1292_Soft_Stop (const int chip_select);
-    static void ads1292_Start_Read_Data_Continuous (const int chip_select);
-    static void ads1292_Stop_Read_Data_Continuous (const int chip_select);
-    static char* ads1292_Read_Data(const int chip_select);
+    boolean getAds1292EcgAndRespirationSamples(const int dataReady,const int chipSelect,ads1292OutputValues *ecgRespirationValues);
+    static void ads1292Init(const int chipSelect,const int pwdnPin,const int startPin);
+    static void ads1292Reset(const int pwdnPin);
+
+  private:
+	  static void ads1292RegWrite (unsigned char READ_WRITE_ADDRESS, unsigned char DATA,const int chipSelect);
+    static void ads1292SPICommandData(unsigned char dataIn,const int chipSelect);
+    static void ads1292DisableStart(const int startPin);
+    static void ads1292EnableStart(const int startPin);
+    static void ads1292HardStop (const int startPin);
+    static void ads1292StartDataConvCommand (const int chipSelect);
+    static void ads1292SoftStop (const int chipSelect);
+    static void ads1292StartReadDataContinuous (const int chipSelect);
+    static void ads1292StopReadDataContinuous (const int chipSelect);
+    static char* ads1292ReadData(const int chipSelect);
 };
 
 #endif

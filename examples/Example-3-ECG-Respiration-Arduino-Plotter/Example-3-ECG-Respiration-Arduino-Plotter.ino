@@ -38,20 +38,19 @@
 #include "ecgRespirationAlgo.h"
 #include <SPI.h>
 
-volatile uint8_t global_HeartRate = 0;
-volatile uint8_t global_RespirationRate=0;
+volatile uint8_t globalHeartRate = 0;
+volatile uint8_t globalRespirationRate=0;
 
-//Pin declartion the other you need are controlled by the SPI library
 const int ADS1292_DRDY_PIN = 6;
 const int ADS1292_CS_PIN = 7;
 const int ADS1292_START_PIN = 5;
 const int ADS1292_PWDN_PIN = 4;
 
-int16_t ecg_wave_buff, ecg_filterout;
-int16_t res_wave_buff,resp_filterout;
+int16_t ecgWaveBuff, ecgFilterout;
+int16_t resWaveBuff,respFilterout;
 
-ads1292r ADS1292R;   // define class ads1292r
-ecg_respiration_algorithm ECG_RESPIRATION_ALGORITHM; // define class ecg_algorithm
+ads1292r ADS1292R;
+ecg_respiration_algorithm ECG_RESPIRATION_ALGORITHM;
 
 void setup()
 {
@@ -70,33 +69,33 @@ void setup()
   pinMode(ADS1292_PWDN_PIN, OUTPUT);
 
   Serial.begin(57600);
-  ADS1292R.ads1292_Init(ADS1292_CS_PIN,ADS1292_PWDN_PIN,ADS1292_START_PIN);
+  ADS1292R.ads1292Init(ADS1292_CS_PIN,ADS1292_PWDN_PIN,ADS1292_START_PIN);
   Serial.println("Initiliziation is done");
 }
 
 void loop()
 {
-  ads1292_output_values ecg_respiration_values;
+  ads1292OutputValues ecgRespirationValues;
 
-  boolean ret = ADS1292R.ads1292_ecg_and_respiration_samples(ADS1292_DRDY_PIN,ADS1292_CS_PIN,&ecg_respiration_values);
+  boolean ret = ADS1292R.getAds1292EcgAndRespirationSamples(ADS1292_DRDY_PIN,ADS1292_CS_PIN,&ecgRespirationValues);
   if (ret == true)
   {
-    ecg_wave_buff = (int16_t)(ecg_respiration_values.s_Daq_Vals[1] >> 8) ;  // ignore the lower 8 bits out of 24bits
-    res_wave_buff = (int16_t)(ecg_respiration_values.sresultTempResp>>8) ;
+    ecgWaveBuff = (int16_t)(ecgRespirationValues.sDaqVals[1] >> 8) ;  // ignore the lower 8 bits out of 24bits
+    resWaveBuff = (int16_t)(ecgRespirationValues.sresultTempResp>>8) ;
 
-    if(ecg_respiration_values.leadoff_detected == false)
+    if(ecgRespirationValues.leadoffDetected == false)
     {
-      ECG_RESPIRATION_ALGORITHM.ECG_ProcessCurrSample(&ecg_wave_buff, &ecg_filterout);   // filter out the line noise @40Hz cutoff 161 order
-      ECG_RESPIRATION_ALGORITHM.QRS_Algorithm_Interface(ecg_filterout,&global_HeartRate); // calculate
-      //resp_filterout = ECG_RESPIRATION_ALGORITHM.Resp_ProcessCurrSample(res_wave_buff);
-      //ECG_RESPIRATION_ALGORITHM.RESP_Algorithm_Interface(resp_filterout,&global_RespirationRate);
+      ECG_RESPIRATION_ALGORITHM.ECG_ProcessCurrSample(&ecgWaveBuff, &ecgFilterout);   // filter out the line noise @40Hz cutoff 161 order
+      ECG_RESPIRATION_ALGORITHM.QRS_Algorithm_Interface(ecgFilterout,&globalHeartRate); // calculate
+      //respFilterout = ECG_RESPIRATION_ALGORITHM.Resp_ProcessCurrSample(resWaveBuff);
+      //ECG_RESPIRATION_ALGORITHM.RESP_Algorithm_Interface(respFilterout,&globalRespirationRate);
 
     }else{
-      ecg_filterout = 0;
-      resp_filterout = 0;
+      ecgFilterout = 0;
+      respFilterout = 0;
     }
 
-    Serial.println(ecg_filterout);
-    //Serial.println(res_wave_buff);
+    Serial.println(ecgFilterout);
+    //Serial.println(resWaveBuff);
   }
 }
