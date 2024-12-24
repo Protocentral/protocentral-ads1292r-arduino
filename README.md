@@ -1,17 +1,66 @@
-ProtoCentral ADS1292R ECG/respiration Arduino Library
-================================
+# Protocentral ADS1292R ECG/respiration Arduino Library
+
 [![Compile Examples](https://github.com/Protocentral/protocentral-ads1292r-arduino/workflows/Compile%20Examples/badge.svg)](https://github.com/Protocentral/protocentral-ads1292r-arduino/actions?workflow=Compile+Examples)
 
-[Don't have it yet? Buy one here: ADS1292R ECG/Respiration Shield for Arduino- v2 (PC-4128)](https://protocentral.com/product/ads1292r-ecg-respiration-shield-for-arduino-v2/)
+## Don't have one? [Buy shield here](https://protocentral.com/product/ads1292r-ecg-respiration-shield-for-arduino-v2/)
 
-[![bob](docs/img/ads1292r_breakout.jpg)  
-Dont have it yet? But one here: ADS1292R ECG/Respiration Breakout for Arduino- v3 (PC-4116)](https://protocentral.com/product/ads1292r-ecg-respiration-breakout-kit/)
+<center>
+
+![ADS1292R breakout](./assets/ads1292r_shield.jpg)
+
+</center>
 
 
-This is the Arduino library for the ProtoCentral ADS1292R-based ECG/Respiration monitoring shield and breakout boards.
+## Don't have one? [Buy breakout here](https://protocentral.com/product/ads1292r-ecg-respiration-breakout-kit/)
 
-## For the main documentation site, GUI and more resources, please check out our main [GitHub Repo](https://github.com/Protocentral/ADS1292rShield_Breakout)
+<center>
 
+![ADS1292R shield](./assets/ads1292r_breakout.jpg)
+
+</center>
+
+Easily monitor ECG and respiration using your Arduino with this plug-in shield. The version 2 of this product adds a new SPI pin header making it compatible with newer Arduino devices including the Arduino Yun and 3.5mm connector for the electrodes. We now include the electrodes and cable also with the shield
+
+Just plug it into an Arduino and you're ready to go. The 3.5 mm circular connector provides an easy way to connect electodes to the shield. The other end of this cable has snaps for standard ECG electrodes. We also include a pakc of 10 disposable EG electrodes. It accepts two ECG electrodes and one Driven Right Leg (DRL) electrode for common mode noise reduction.
+
+Another interesting feature of this shield is that you can also measure the respiratory activity using the same two electrodes connected to the shield. The ADS1292R uses a method known as impedance pneumography to measure respiration using the changes in chest impedance caused during respiration.
+
+## Features
+
+* ADS1292R Analog Front End IC
+* Onboard 3.3V voltage regulator for low noise
+* Onboard logic level transalators for Arduino interface
+* Prototyping area for adding addtional components
+
+
+## Hardware Setup
+
+Connection with the Arduino board is as follows:
+
+
+|ADS1292R pin label| Arduino Connection   |Pin Function      |
+|----------------- |:--------------------:|-----------------:|
+| MISO             | D12                  |  Slave out   |             
+| MOSI             | D11                  |  Slave in         |
+| SCK              | D13                  |  Serial clock     |
+| CS               | D7                   |  chip select      |
+| DRDY             | D6                   |  Data Ready Output|
+| START            | D5                   |  Start Input      |
+| PWDN/RESET       | D4                   |  Reset            |
+| VDD              | +5V                   | Power Supply      |
+| GND              | GND                  | GND               |
+
+
+# Visualizing Output
+
+![Streaming output](./assets/output.png)
+
+For further details of the board, refer the documentation
+<center>
+
+[ ADS1292R breakout board Documentation](https://docs.protocentral.com/getting-started-with-ADS1292R/)
+
+</center>
 
 License Information
 ===================

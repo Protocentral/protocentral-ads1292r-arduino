@@ -57,11 +57,7 @@ void setup()
   delay(2000);
 
   SPI.begin();
-  SPI.setBitOrder(MSBFIRST);
-  //CPOL = 0, CPHA = 1
-  SPI.setDataMode(SPI_MODE1);
-  // Selecting 1Mhz clock for SPI
-  SPI.setClockDivider(SPI_CLOCK_DIV16);
+ SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE1));
 
   pinMode(ADS1292_DRDY_PIN, INPUT);
   pinMode(ADS1292_CS_PIN, OUTPUT);
