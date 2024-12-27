@@ -98,13 +98,13 @@ void loop()
     {
       if(ecgRespirationValues.leadoffDetected == true) // lead in not connected
       {
-        Serial.println("ECG lead error!!! ensure the leads are properly connected");
+        Serial.println(F("ECG lead error!!! ensure the leads are properly connected"));
       }else{
 
-        Serial.print("Heart rate: ");
+        Serial.print(F("Heart rate: "));
         Serial.print(globalHeartRate);
-        Serial.println("BPM");
-        Serial.print("Respiration Rate :");
+        Serial.println(F("BPM"));
+        Serial.print(F("Respiration Rate :"));
         Serial.println(globalRespirationRate);
       }
       timeElapsed += 1000;

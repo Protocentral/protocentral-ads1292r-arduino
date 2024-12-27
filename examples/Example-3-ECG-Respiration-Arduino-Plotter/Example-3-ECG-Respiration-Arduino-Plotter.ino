@@ -57,7 +57,7 @@ void setup()
   delay(2000);
 
   SPI.begin();
- SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE1));
+  SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE1));
 
   pinMode(ADS1292_DRDY_PIN, INPUT);
   pinMode(ADS1292_CS_PIN, OUTPUT);
