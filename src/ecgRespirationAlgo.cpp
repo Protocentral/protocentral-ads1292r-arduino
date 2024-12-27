@@ -219,7 +219,7 @@ void ecg_respiration_algorithm :: QRS_check_sample_crossing_threshold( uint16_t 
   static unsigned int nopeak = 0;
   uint16_t Max = 0 ;
   uint16_t HRAvg;
-  uint16_t  RRinterval = 0;
+
   
   if ( TRUE == threshold_crossed  )
   {
@@ -390,11 +390,11 @@ void ecg_respiration_algorithm :: Resp_FilterProcess(int16_t * RESP_WorkingBuff,
 
 int16_t ecg_respiration_algorithm :: Resp_ProcessCurrSample(int16_t CurrAqsSample)
 {
-  static uint16_t bufStart=0, bufCur = FILTERORDER-1, FirstFlag = 1;    
+  static uint16_t bufStart=0, bufCur = FILTERORDER-1;  
   int16_t temp1, temp2;//, RESPData;
   int16_t RESPData;
   /* Count variable*/
-  uint16_t Cur_Chan;
+ 
   int16_t FiltOut; 
   temp1 = NRCOEFF * Pvev_DC_Sample;
   Pvev_DC_Sample = (CurrAqsSample  - Pvev_Sample) + temp1;

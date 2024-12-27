@@ -190,7 +190,7 @@ void ads1292r::ads1292StopReadDataContinuous (const int chipSelect)
 
 void ads1292r::ads1292SPICommandData(unsigned char dataIn,const int chipSelect)
 {
-  byte data[1];
+  //byte data[1];
   //data[0] = dataIn;
   digitalWrite(chipSelect, LOW);
   delay(2);
