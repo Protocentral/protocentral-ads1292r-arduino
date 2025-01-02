@@ -30,6 +30,7 @@
 //  | SCK              | D13                  |  Serial Clock    |
 //  | GND              | Gnd                  |  Gnd             |
 //
+// *Note: Computation will not support with Arduino uno and nano
 /////////////////////////////////////////////////////////////////////////////////////////
 
 #include "protocentralAds1292r.h"
