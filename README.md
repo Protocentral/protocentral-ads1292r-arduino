@@ -25,13 +25,6 @@ Just plug it into an Arduino and you're ready to go. The 3.5 mm circular connect
 
 Another interesting feature of this shield is that you can also measure the respiratory activity using the same two electrodes connected to the shield. The ADS1292R uses a method known as impedance pneumography to measure respiration using the changes in chest impedance caused during respiration.
 
-## Features
-
-* ADS1292R Analog Front End IC
-* Onboard 3.3V voltage regulator for low noise
-* Onboard logic level transalators for Arduino interface
-* Prototyping area for adding addtional components
-
 
 ## Hardware Setup
 
@@ -55,12 +48,8 @@ Connection with the Arduino board is as follows:
 
 ![Streaming output](./assets/output.png)
 
-For further details of the board, refer the documentation
-<center>
+## For further details, refer [the documentation on ADS1292R breakout board](https://docs.protocentral.com/getting-started-with-ADS1292R/)
 
-[ ADS1292R breakout board Documentation](https://docs.protocentral.com/getting-started-with-ADS1292R/)
-
-</center>
 
 License Information
 ===================
