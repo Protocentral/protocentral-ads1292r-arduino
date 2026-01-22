@@ -33,15 +33,15 @@ Connection with the Arduino board is as follows:
 
 |ADS1292R pin label| Arduino Connection   |Pin Function      |
 |----------------- |:--------------------:|-----------------:|
-| MISO             | D12                  |  Slave out   |             
-| MOSI             | D11                  |  Slave in         |
-| SCK              | D13                  |  Serial clock     |
-| CS               | D7                   |  chip select      |
-| DRDY             | D6                   |  Data Ready Output|
-| START            | D5                   |  Start Input      |
-| PWDN/RESET       | D4                   |  Reset            |
-| VDD              | +5V                   | Power Supply      |
+| VDD              | +5V                  | Power Supply      |
 | GND              | GND                  | GND               |
+| MISO             | D12                  | SPI MISO          |
+| MOSI             | D11                  | SPI MOSI          |
+| SCK              | D13                  | SPI Clock         |
+| CS               | D4                   | Chip Select       |
+| DRDY             | D2                   | Data Ready Output |
+| START            | D5                   | Start Input       |
+| PWDN/RESET       | D6                   | Reset             |
 
 
 # Visualizing Output
