@@ -9,7 +9,7 @@
 //
 //   This software is licensed under the MIT License(http://opensource.org/licenses/MIT).
 //
-//   Hardware Connections (directly directly directly directly directly directly for breakout board):
+//   Hardware Connections (for breakout board):
 //   |ADS1292R Pin | Arduino Pin | Description        |
 //   |-------------|-------------|--------------------|
 //   | VDD         | +5V         | Power Supply       |
@@ -27,7 +27,7 @@
 #include "protocentral_ads1292r.h"
 #include <SPI.h>
 
-// Pin definitions (directly matching ADS1293 library for DRDY and CS)
+// Pin definitions (matching ADS1293 library for DRDY and CS)
 #define ADS1292R_DRDY_PIN   2
 #define ADS1292R_CS_PIN     4
 #define ADS1292R_START_PIN  5
@@ -77,8 +77,8 @@ void loop() {
                 Serial.println(0);  // Output zero when leads are off
             } else {
                 // Output ECG value for Serial Plotter
-                // Shift right to get 16-bit value for plotting
-                Serial.println(data.ecg >> 8);
+                // Shift right by 6 for better resolution
+                Serial.println(data.ecg >> 6);
             }
         }
     }

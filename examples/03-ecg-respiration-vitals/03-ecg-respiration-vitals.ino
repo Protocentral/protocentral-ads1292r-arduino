@@ -54,6 +54,10 @@ const unsigned long PRINT_INTERVAL_MS = 1000;  // Print every 1 second
 // Store latest vital signs
 VitalSigns currentVitals;
 
+// Respiration smoothing filter
+int32_t respFiltered = 0;
+bool respFilterInit = false;
+
 void setup() {
     Serial.begin(115200);
     while (!Serial) {
@@ -90,9 +94,26 @@ void loop() {
         ADS1292R_Data data = ecgSensor.getData();
 
         if (data.ok) {
-            // Get 16-bit values from 24-bit samples
-            int16_t ecgSample = (int16_t)(data.ecg >> 8);
-            int16_t respSample = (int16_t)(data.respiration >> 8);
+            // Scale 24-bit data to 16-bit with better resolution
+            int32_t ecgScaled = data.ecg >> 6;
+
+            // Respiration: use exponential smoothing to reduce noise
+            if (!respFilterInit) {
+                respFiltered = data.respiration;
+                respFilterInit = true;
+            }
+            // Exponential smoothing: new = 0.0625 * sample + 0.9375 * old
+            respFiltered = (data.respiration >> 4) + (respFiltered - (respFiltered >> 4));
+            int32_t respScaled = respFiltered >> 4;
+
+            // Clamp to 16-bit range
+            if (ecgScaled > 32767) ecgScaled = 32767;
+            if (ecgScaled < -32768) ecgScaled = -32768;
+            if (respScaled > 32767) respScaled = 32767;
+            if (respScaled < -32768) respScaled = -32768;
+
+            int16_t ecgSample = (int16_t)ecgScaled;
+            int16_t respSample = (int16_t)respScaled;
 
             if (!data.leadOff) {
                 // Process samples and compute vital signs

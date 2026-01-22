@@ -71,8 +71,8 @@ void setup() {
     Serial.println(deviceId, HEX);
     Serial.println();
 
-    Serial.println("Sample#, ECG_raw24, ECG_16, Resp_raw24, Resp_16, LeadOff, Status");
-    Serial.println("----------------------------------------------------------------");
+    Serial.println("Sample#, ECG_raw24, ECG_16(>>6), Resp_raw24, Resp_16(>>4), LeadOff, Status");
+    Serial.println("------------------------------------------------------------------------");
 
     lastPrint = millis();
 }
@@ -84,9 +84,18 @@ void loop() {
         if (data.ok) {
             sampleCount++;
 
-            // Convert 24-bit to 16-bit (keep upper 16 bits)
-            int16_t ecg16 = (int16_t)(data.ecg >> 8);
-            int16_t resp16 = (int16_t)(data.respiration >> 8);
+            // Convert 24-bit to 16-bit with better resolution
+            // ECG: >> 6 for better resolution
+            int32_t ecgScaled = data.ecg >> 6;
+            if (ecgScaled > 32767) ecgScaled = 32767;
+            if (ecgScaled < -32768) ecgScaled = -32768;
+            int16_t ecg16 = (int16_t)ecgScaled;
+
+            // Respiration: >> 4 for better resolution
+            int32_t respScaled = data.respiration >> 4;
+            if (respScaled > 32767) respScaled = 32767;
+            if (respScaled < -32768) respScaled = -32768;
+            int16_t resp16 = (int16_t)respScaled;
 
             // Print every 25th sample (5 times per second at 125 SPS)
             if (sampleCount % 25 == 0) {

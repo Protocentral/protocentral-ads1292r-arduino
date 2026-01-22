@@ -52,6 +52,10 @@
 ADS1292R ecgSensor(ADS1292R_DRDY_PIN, ADS1292R_CS_PIN, ADS1292R_START_PIN, ADS1292R_PWDN_PIN);
 ECGRespirationAlgorithm ecgAlgo;
 
+// Simple exponential smoothing filter for respiration
+int32_t respFiltered = 0;
+bool respFilterInit = false;
+
 // Packet buffers
 const uint8_t packetHeader[5] = {CES_CMDIF_PKT_START_1, CES_CMDIF_PKT_START_2, DATA_LEN, 0, CES_CMDIF_TYPE_DATA};
 const uint8_t packetFooter[2] = {0, CES_CMDIF_PKT_STOP};
@@ -99,11 +103,22 @@ void loop() {
         ADS1292R_Data data = ecgSensor.getData();
 
         if (data.ok) {
-            // Scale 24-bit data to 16-bit more appropriately
-            // The ECG signal typically uses only a small portion of the 24-bit range
-            // Shift by 6 instead of 8 to preserve more resolution, then clamp
+            // Scale 24-bit data to 16-bit
+            // ECG: shift by 6 for good resolution
             int32_t ecgScaled = data.ecg >> 6;
-            int32_t respScaled = data.respiration >> 6;
+
+            // Respiration: use stronger exponential smoothing to eliminate staircase
+            // Initialize filter on first sample
+            if (!respFilterInit) {
+                respFiltered = data.respiration;
+                respFilterInit = true;
+            }
+            // Exponential smoothing: new = 0.0625 * sample + 0.9375 * old (alpha = 1/16)
+            // Very strong smoothing for the slow respiration signal
+            respFiltered = (data.respiration >> 4) + (respFiltered - (respFiltered >> 4));
+
+            // Scale to 16-bit (shift by 4 for good range)
+            int32_t respScaled = respFiltered >> 4;
 
             // Clamp to 16-bit range
             if (ecgScaled > 32767) ecgScaled = 32767;
