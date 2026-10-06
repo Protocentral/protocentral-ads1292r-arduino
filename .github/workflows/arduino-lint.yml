@@ -1,0 +1,32 @@
+name: Arduino Lint
+
+on:
+  push:
+    paths:
+      - "library.properties"
+      - "keywords.txt"
+      - "src/**"
+      - "examples/**"
+      - ".github/workflows/arduino-lint.yml"
+  pull_request:
+    paths:
+      - "library.properties"
+      - "keywords.txt"
+      - "src/**"
+      - "examples/**"
+      - ".github/workflows/arduino-lint.yml"
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Arduino Lint
+        uses: arduino/arduino-lint-action@v1
+        with:
+          # Already in the Library Manager index, so validate as an update
+          library-manager: update
+          project-type: library
