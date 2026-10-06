@@ -29,4 +29,5 @@ jobs:
         with:
           # Already in the Library Manager index, so validate as an update
           library-manager: update
+          compliance: strict
           project-type: library

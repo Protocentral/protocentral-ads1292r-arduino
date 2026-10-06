@@ -4,7 +4,7 @@ All notable changes to this library are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses
 [Semantic Versioning](https://semver.org/).
 
-## [2.0.0] - Unreleased
+## [2.0.0] - 2026-10-06
 
 Ground-up rewrite. **Breaking:** the 1.x API is removed. See "Migrating from 1.x" in the README.
 
