@@ -1,0 +1,13 @@
+# Editor / OS
+.vscode/
+.DS_Store
+*.swp
+*~
+
+# Build artifacts
+build/
+.pio/
+
+# Local bring-up sketches and vendor datasheets
+dev/
+docs/*.pdf

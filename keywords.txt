@@ -1,0 +1,111 @@
+#######################################
+# Syntax Coloring Map for ProtoCentral ADS1292R
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Protocentral_ADS1292R	KEYWORD1
+ADS1292R_Algorithms	KEYWORD1
+ADS1292R_Sample	KEYWORD1
+ADS1292R_Config	KEYWORD1
+ADS1292R_Status	KEYWORD1
+ADS1292R_DataRate	KEYWORD1
+ADS1292R_Channel	KEYWORD1
+ADS1292R_Gain	KEYWORD1
+ADS1292R_Mux	KEYWORD1
+ADS1292R_Reference	KEYWORD1
+ADS1292R_TestSignal	KEYWORD1
+ADS1292R_LeadOffThreshold	KEYWORD1
+ADS1292R_LeadOffCurrent	KEYWORD1
+ADS1292R_RespFreq	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+# Initialization
+begin	KEYWORD2
+end	KEYWORD2
+isConnected	KEYWORD2
+readID	KEYWORD2
+lastError	KEYWORD2
+getLibraryVersion	KEYWORD2
+
+# Conversion control
+start	KEYWORD2
+stop	KEYWORD2
+standby	KEYWORD2
+wakeup	KEYWORD2
+setDataRate	KEYWORD2
+getDataRate	KEYWORD2
+getSampleRate	KEYWORD2
+setSingleShot	KEYWORD2
+
+# Reading data
+available	KEYWORD2
+read	KEYWORD2
+enableDataReadyInterrupt	KEYWORD2
+disableDataReadyInterrupt	KEYWORD2
+missedSamples	KEYWORD2
+
+# Channels
+setGain	KEYWORD2
+getGain	KEYWORD2
+setInputMux	KEYWORD2
+setChannelPowerDown	KEYWORD2
+setReference	KEYWORD2
+setTestSignal	KEYWORD2
+
+# Lead-off, respiration, RLD
+configureLeadOff	KEYWORD2
+readLeadOffStatus	KEYWORD2
+configureRespiration	KEYWORD2
+runOffsetCalibration	KEYWORD2
+configureRLD	KEYWORD2
+
+# Clock and GPIO
+setClockOutput	KEYWORD2
+setGPIOMode	KEYWORD2
+writeGPIO	KEYWORD2
+readGPIO	KEYWORD2
+
+# Units and measurements
+countsToMicrovolts	KEYWORD2
+readTemperature	KEYWORD2
+readAnalogSupply	KEYWORD2
+readDigitalSupply	KEYWORD2
+
+# Registers
+readRegister	KEYWORD2
+writeRegister	KEYWORD2
+printRegisters	KEYWORD2
+
+# Algorithms
+reset	KEYWORD2
+processSample	KEYWORD2
+processEcg	KEYWORD2
+processResp	KEYWORD2
+filteredEcg	KEYWORD2
+filteredResp	KEYWORD2
+heartRate	KEYWORD2
+respirationRate	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+ADS1292R_LIBRARY_VERSION	LITERAL1
+ADS1292R_DEVICE_ID	LITERAL1
+ADS1292R_IN1P	LITERAL1
+ADS1292R_IN1N	LITERAL1
+ADS1292R_IN2P	LITERAL1
+ADS1292R_IN2N	LITERAL1
+ADS1292R_RLD	LITERAL1
+ADS1292R_ELECTRODE_RA	LITERAL1
+ADS1292R_ELECTRODE_LA	LITERAL1
+ADS1292R_ELECTRODE_RL	LITERAL1
+ADS1292R_RESP_PHASE_DEFAULT	LITERAL1
+ADS1292R_ALGO_SAMPLE_RATE	LITERAL1
+ADS1292R_SPI_CLOCK	LITERAL1
