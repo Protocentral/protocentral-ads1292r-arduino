@@ -29,5 +29,7 @@ jobs:
         with:
           # Already in the Library Manager index, so validate as an update
           library-manager: update
-          compliance: strict
+          # "strict" flags the legacy Library Manager name (length, spaces, "library"),
+          # which cannot change without breaking updates for existing installs
+          compliance: specification
           project-type: library

@@ -12,7 +12,7 @@ Guidance for working on the ProtoCentral ADS1292R Arduino library.
 
 There is no host-side test harness. Run `scripts/build.sh [fqbn]`, which uses arduino-cli with `--library` pointing at this checkout and compiles every example on the CI board list.
 
-CI runs `arduino-lint` in `update` mode (the library is already in the Library Manager index) and the same 9-board compile matrix. Each matrix entry carries its **whole** `platforms:` block: emitting an empty `source-url:` for an Arduino-official core crashes `compile-sketches`.
+CI runs `arduino-lint` in `update` mode with `specification` compliance (the library is already in the Library Manager index; `strict` would fail on the legacy `name=`) and the same 9-board compile matrix. Each matrix entry carries its **whole** `platforms:` block: emitting an empty `source-url:` for an Arduino-official core crashes `compile-sketches`.
 
 Hardware validation still requires a physical board. Run `10.Diagnostics` and `05.TestSignalNoise` first.
 
