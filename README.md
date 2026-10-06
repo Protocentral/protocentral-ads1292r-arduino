@@ -7,7 +7,7 @@ Arduino library for the **ProtoCentral ADS1292R ECG and Respiration Breakout (v4
 
 ## Don't have one? [Buy it here](https://protocentral.com/product/ads1292r-ecg-respiration-breakout-kit/)
 
-![ProtoCentral ADS1292R Breakout v4](assets/ads1292r_breakout_v4.jpg)
+![ProtoCentral ADS1292R ECG and Respiration Breakout](assets/ads1292r_breakout.jpg)
 
 ## Links
 
@@ -50,6 +50,15 @@ The processing is fixed-point and uses about 1 KB of RAM.
 | Shield v2 | Plugs onto an Arduino Uno (D4–D7, SPI) | Same pins as the examples' defaults |
 
 All three run the same library and examples. **RST** on v4 is the same pin as **PWDN/RESET** on older boards.
+
+### What's in the box
+
+The breakout kit contains:
+- the board
+- a 3.5 mm electrode cable with snap leads
+- 10 disposable ECG electrodes
+
+![ADS1292R Breakout Kit contents](assets/ads1292r_breakout_kit.jpg)
 
 ## Features
 
@@ -132,9 +141,9 @@ Plug the electrode cable into the 3.5 mm jack. Use fresh gel electrodes on clean
 
 | Electrode | Placement | Jack | Connects to |
 |---|---|---|---|
-| **RA** | Below the right collarbone | Ring | IN2P (ECG +), IN1N (respiration) |
-| **LA** | Below the left collarbone | Tip | IN2N (ECG −), IN1P (respiration) |
-| **RL** | Lower right abdomen | Sleeve | Right-leg drive |
+| **RA** (black) | Below the right collarbone | Ring | IN2P (ECG +), IN1N (respiration) |
+| **LA** (red) | Below the left collarbone | Tip | IN2N (ECG −), IN1P (respiration) |
+| **RL / DRL** (green) | Lower right abdomen | Sleeve | Right-leg drive |
 
 **Respiration:** it uses the same RA/LA pair. Chest placement gives a much larger respiration signal than wrist or limb placement.
 
