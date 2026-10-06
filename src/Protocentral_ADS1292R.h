@@ -99,6 +99,13 @@
 #define ADS1292R_IN2N 0x08  ///< Channel 2 negative input
 #define ADS1292R_RLD  0x10  ///< RLD electrode (LOFF_STAT only)
 
+// Electrode names for the ProtoCentral ADS1292R Breakout v4 (from its netlist):
+// jack ring RA -> IN2P, jack tip LA -> IN2N, sleeve RL -> right-leg drive.
+// CH2 therefore records RA - LA; negate it for conventional Lead I polarity.
+#define ADS1292R_ELECTRODE_RA ADS1292R_IN2P  ///< Right-arm electrode lead-off flag
+#define ADS1292R_ELECTRODE_LA ADS1292R_IN2N  ///< Left-arm electrode lead-off flag
+#define ADS1292R_ELECTRODE_RL ADS1292R_RLD   ///< Right-leg electrode lead-off flag (needs RLD lead-off sensing)
+
 // LOFF_STAT
 #define ADS1292R_LOFF_STAT_CLK_DIV    0x40
 

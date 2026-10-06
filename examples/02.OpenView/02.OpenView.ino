@@ -4,7 +4,7 @@
 // 02.OpenView
 //
 // Streams filtered ECG, respiration, heart rate and respiration rate to
-// ProtoCentral OpenView (https://github.com/Protocentral/protocentral_openview2).
+// ProtoCentral OpenView (https://github.com/Protocentral/protocentral_openview).
 // In OpenView, choose the "ADS1292R Breakout" board and this serial port.
 //
 // Wire format (must match OpenView's ads1292r descriptor - change both together):

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="620" viewBox="0 0 960 620" font-family="Helvetica, Arial, sans-serif">
+  <rect width="960" height="620" rx="16" fill="#fafafa" stroke="#e0e0e0"/>
+  <text x="480" y="46" text-anchor="middle" font-size="26" font-weight="bold" fill="#212121">ADS1292R Breakout v4 &#8212; electrode placement</text>
+  <text x="480" y="74" text-anchor="middle" font-size="15" fill="#757575">Chest placement gives the strongest respiration signal · subject facing you</text>
+
+  <!-- body silhouette -->
+  <g fill="#ecd9cf">
+    <circle cx="480" cy="128" r="34"/>
+    <rect x="466" y="156" width="28" height="22"/>
+    <path d="M380 180 Q480 165 580 180 Q620 188 628 230 L652 400 Q656 418 640 420 L624 420 L600 260 L596 470 L364 470 L360 260 L336 420 L320 420 Q304 418 308 400 L332 230 Q340 188 380 180 Z"/>
+  </g>
+
+  <!-- electrodes -->
+  <g stroke="#ffffff" stroke-width="3">
+    <circle cx="430" cy="225" r="14" fill="#37474f"/>
+    <circle cx="530" cy="225" r="14" fill="#d32f2f"/>
+    <circle cx="440" cy="420" r="14" fill="#2e7d32"/>
+  </g>
+  <line x1="444" y1="225" x2="516" y2="225" stroke="#1565c0" stroke-width="2" stroke-dasharray="5 5"/>
+  <text x="480" y="252" text-anchor="middle" font-size="13" fill="#1565c0">ECG + respiration</text>
+
+  <!-- RA callout -->
+  <line x1="416" y1="225" x2="290" y2="170" stroke="#37474f" stroke-width="2"/>
+  <rect x="40" y="110" width="250" height="100" rx="10" fill="#ffffff" stroke="#37474f" stroke-width="2"/>
+  <text x="58" y="140" font-size="19" font-weight="bold" fill="#37474f">RA &#8212; right arm</text>
+  <text x="58" y="164" font-size="14" fill="#424242">Below the right collarbone</text>
+  <text x="58" y="186" font-size="13" fill="#616161">Jack ring &#8594; IN2P (ECG +), IN1N (resp)</text>
+
+  <!-- LA callout -->
+  <line x1="544" y1="225" x2="670" y2="170" stroke="#d32f2f" stroke-width="2"/>
+  <rect x="670" y="110" width="250" height="100" rx="10" fill="#ffffff" stroke="#d32f2f" stroke-width="2"/>
+  <text x="688" y="140" font-size="19" font-weight="bold" fill="#d32f2f">LA &#8212; left arm</text>
+  <text x="688" y="164" font-size="14" fill="#424242">Below the left collarbone</text>
+  <text x="688" y="186" font-size="13" fill="#616161">Jack tip &#8594; IN2N (ECG &#8722;), IN1P (resp)</text>
+
+  <!-- RL callout -->
+  <line x1="426" y1="420" x2="290" y2="440" stroke="#2e7d32" stroke-width="2"/>
+  <rect x="40" y="390" width="250" height="100" rx="10" fill="#ffffff" stroke="#2e7d32" stroke-width="2"/>
+  <text x="58" y="420" font-size="19" font-weight="bold" fill="#2e7d32">RL &#8212; right leg</text>
+  <text x="58" y="444" font-size="14" fill="#424242">Lower right abdomen</text>
+  <text x="58" y="466" font-size="13" fill="#616161">Jack sleeve &#8594; right-leg drive</text>
+
+  <!-- channel table -->
+  <rect x="160" y="512" width="640" height="84" rx="10" fill="#ffffff" stroke="#e0e0e0"/>
+  <text x="190" y="540" font-size="14" font-weight="bold" fill="#424242">CH2 &#183; ECG</text>
+  <text x="330" y="540" font-size="14" fill="#424242">RA &#8722; LA through 51 k&#937;, gain 12 &#8212; negate for Lead I polarity</text>
+  <text x="190" y="572" font-size="14" font-weight="bold" fill="#424242">CH1 &#183; Resp</text>
+  <text x="330" y="572" font-size="14" fill="#424242">LA &#8722; RA AC-coupled, 32 kHz impedance pneumography</text>
+</svg>

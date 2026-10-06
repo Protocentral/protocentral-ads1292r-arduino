@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640" font-family="Helvetica, Arial, sans-serif">
+<rect width="960" height="640" rx="16" fill="#fafafa" stroke="#e0e0e0"/>
+<text x="480.0" y="48" text-anchor="middle" font-size="26" font-weight="bold" fill="#212121">ADS1292R Breakout v4 &#8594; Arduino Uno</text>
+<text x="480.0" y="78" text-anchor="middle" font-size="15" fill="#757575">J4 host header, left to right as printed on the board · default pins used by every example</text>
+<rect x="40" y="110" width="270" height="490" rx="14" fill="#263238" stroke="#11181c" stroke-width="3"/>
+<text x="175" y="142" text-anchor="middle" font-size="19" font-weight="bold" fill="#ffffff">ADS1292R Breakout v4</text>
+<text x="60" y="590" font-size="12" fill="#b0bec5">JP1 CLK SEL: default internal clock</text>
+<rect x="650" y="110" width="270" height="490" rx="14" fill="#1565c0" stroke="#0d47a1" stroke-width="3"/>
+<text x="785" y="142" text-anchor="middle" font-size="19" font-weight="bold" fill="#ffffff">Arduino Uno</text>
+<text x="670" y="590" font-size="12" fill="#bbdefb">or ADS1292R Shield (same pins)</text>
+<text x="285" y="195" text-anchor="end" font-size="16" font-weight="bold" fill="#eceff1">CSB</text>
+<circle cx="310" cy="190" r="7" fill="#f57c00" stroke="#fff" stroke-width="2"/>
+<line x1="317" y1="190" x2="643" y2="190" stroke="#f57c00" stroke-width="5"/>
+<circle cx="650" cy="190" r="7" fill="#f57c00" stroke="#fff" stroke-width="2"/>
+<text x="670" y="195" font-size="16" font-weight="bold" fill="#ffffff">D7</text>
+<rect x="462.0" y="177" width="36" height="26" rx="6" fill="#ffffff" stroke="#f57c00" stroke-width="2"/>
+<text x="480.0" y="195" text-anchor="middle" font-size="14" fill="#212121">CS</text>
+<text x="285" y="235" text-anchor="end" font-size="16" font-weight="bold" fill="#eceff1">MOSI</text>
+<circle cx="310" cy="230" r="7" fill="#8e24aa" stroke="#fff" stroke-width="2"/>
+<line x1="317" y1="230" x2="643" y2="230" stroke="#8e24aa" stroke-width="5"/>
+<circle cx="650" cy="230" r="7" fill="#8e24aa" stroke="#fff" stroke-width="2"/>
+<text x="670" y="235" font-size="16" font-weight="bold" fill="#ffffff">D11</text>
+<rect x="454.0" y="217" width="52" height="26" rx="6" fill="#ffffff" stroke="#8e24aa" stroke-width="2"/>
+<text x="480.0" y="235" text-anchor="middle" font-size="14" fill="#212121">MOSI</text>
+<text x="285" y="275" text-anchor="end" font-size="16" font-weight="bold" fill="#eceff1">SCK</text>
+<circle cx="310" cy="270" r="7" fill="#fbc02d" stroke="#fff" stroke-width="2"/>
+<line x1="317" y1="270" x2="643" y2="270" stroke="#fbc02d" stroke-width="5"/>
+<circle cx="650" cy="270" r="7" fill="#fbc02d" stroke="#fff" stroke-width="2"/>
+<text x="670" y="275" font-size="16" font-weight="bold" fill="#ffffff">D13</text>
+<rect x="458.0" y="257" width="44" height="26" rx="6" fill="#ffffff" stroke="#fbc02d" stroke-width="2"/>
+<text x="480.0" y="275" text-anchor="middle" font-size="14" fill="#212121">SCK</text>
+<text x="285" y="315" text-anchor="end" font-size="16" font-weight="bold" fill="#eceff1">MISO</text>
+<circle cx="310" cy="310" r="7" fill="#1e88e5" stroke="#fff" stroke-width="2"/>
+<line x1="317" y1="310" x2="643" y2="310" stroke="#1e88e5" stroke-width="5"/>
+<circle cx="650" cy="310" r="7" fill="#1e88e5" stroke="#fff" stroke-width="2"/>
+<text x="670" y="315" font-size="16" font-weight="bold" fill="#ffffff">D12</text>
+<rect x="454.0" y="297" width="52" height="26" rx="6" fill="#ffffff" stroke="#1e88e5" stroke-width="2"/>
+<text x="480.0" y="315" text-anchor="middle" font-size="14" fill="#212121">MISO</text>
+<text x="285" y="355" text-anchor="end" font-size="16" font-weight="bold" fill="#eceff1">DRDY</text>
+<circle cx="310" cy="350" r="7" fill="#00acc1" stroke="#fff" stroke-width="2"/>
+<line x1="317" y1="350" x2="643" y2="350" stroke="#00acc1" stroke-width="5"/>
+<circle cx="650" cy="350" r="7" fill="#00acc1" stroke="#fff" stroke-width="2"/>
+<text x="670" y="355" font-size="16" font-weight="bold" fill="#ffffff">D6</text>
+<rect x="454.0" y="337" width="52" height="26" rx="6" fill="#ffffff" stroke="#00acc1" stroke-width="2"/>
+<text x="480.0" y="355" text-anchor="middle" font-size="14" fill="#212121">DRDY</text>
+<text x="285" y="395" text-anchor="end" font-size="16" font-weight="bold" fill="#eceff1">START</text>
+<circle cx="310" cy="390" r="7" fill="#43a047" stroke="#fff" stroke-width="2"/>
+<line x1="317" y1="390" x2="643" y2="390" stroke="#43a047" stroke-width="5"/>
+<circle cx="650" cy="390" r="7" fill="#43a047" stroke="#fff" stroke-width="2"/>
+<text x="670" y="395" font-size="16" font-weight="bold" fill="#ffffff">D5</text>
+<rect x="450.0" y="377" width="60" height="26" rx="6" fill="#ffffff" stroke="#43a047" stroke-width="2"/>
+<text x="480.0" y="395" text-anchor="middle" font-size="14" fill="#212121">START</text>
+<text x="285" y="435" text-anchor="end" font-size="16" font-weight="bold" fill="#eceff1">RST</text>
+<circle cx="310" cy="430" r="7" fill="#6d4c41" stroke="#fff" stroke-width="2"/>
+<line x1="317" y1="430" x2="643" y2="430" stroke="#6d4c41" stroke-width="5"/>
+<circle cx="650" cy="430" r="7" fill="#6d4c41" stroke="#fff" stroke-width="2"/>
+<text x="670" y="435" font-size="16" font-weight="bold" fill="#ffffff">D4</text>
+<rect x="430.0" y="417" width="100" height="26" rx="6" fill="#ffffff" stroke="#6d4c41" stroke-width="2"/>
+<text x="480.0" y="435" text-anchor="middle" font-size="14" fill="#212121">PWDN/RESET</text>
+<text x="285" y="475" text-anchor="end" font-size="16" font-weight="bold" fill="#eceff1">CLK</text>
+<circle cx="310" cy="470" r="7" fill="#9e9e9e" stroke="#fff" stroke-width="2"/>
+<line x1="317" y1="470" x2="400" y2="470" stroke="#9e9e9e" stroke-width="4" stroke-dasharray="6 6"/>
+<rect x="406.0" y="457" width="148" height="26" rx="6" fill="#ffffff" stroke="#9e9e9e" stroke-width="2"/>
+<text x="480" y="475" text-anchor="middle" font-size="14" fill="#212121">multi-board sync</text>
+<text x="285" y="515" text-anchor="end" font-size="16" font-weight="bold" fill="#eceff1">VCC</text>
+<circle cx="310" cy="510" r="7" fill="#e53935" stroke="#fff" stroke-width="2"/>
+<line x1="317" y1="510" x2="643" y2="510" stroke="#e53935" stroke-width="5"/>
+<circle cx="650" cy="510" r="7" fill="#e53935" stroke="#fff" stroke-width="2"/>
+<text x="670" y="515" font-size="16" font-weight="bold" fill="#ffffff">5V</text>
+<rect x="422.0" y="497" width="116" height="26" rx="6" fill="#ffffff" stroke="#e53935" stroke-width="2"/>
+<text x="480.0" y="515" text-anchor="middle" font-size="14" fill="#212121">3.3 V or 5 V</text>
+<text x="285" y="555" text-anchor="end" font-size="16" font-weight="bold" fill="#eceff1">GND</text>
+<circle cx="310" cy="550" r="7" fill="#424242" stroke="#fff" stroke-width="2"/>
+<line x1="317" y1="550" x2="643" y2="550" stroke="#424242" stroke-width="5"/>
+<circle cx="650" cy="550" r="7" fill="#424242" stroke="#fff" stroke-width="2"/>
+<text x="670" y="555" font-size="16" font-weight="bold" fill="#ffffff">GND</text>
+<rect x="446.0" y="537" width="68" height="26" rx="6" fill="#ffffff" stroke="#424242" stroke-width="2"/>
+<text x="480.0" y="555" text-anchor="middle" font-size="14" fill="#212121">Ground</text>
+</svg>

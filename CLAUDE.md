@@ -20,7 +20,7 @@ Hardware validation still requires a physical board. Run `10.Diagnostics` and `0
 
 - **Keep three places in sync** when changing the public API: the headers, `keywords.txt`, and the API tables in `README.md`. The version lives in `library.properties` and `ADS1292R_LIBRARY_VERSION`.
 - **The Library Manager `name=`** in `library.properties` must never change, or existing installs stop receiving updates.
-- **The OpenView wire format** in `02.OpenView` is shared with the `ads1292r` descriptor in `protocentral_openview2`: 57600 baud, pktType 2, 8-byte payload ECG/RESP/HR/RR as int16 LE, 125 Hz. Change one side only together with the other, in the same release. OpenView sketches print nothing but packets.
+- **The OpenView wire format** in `02.OpenView` is shared with the `ads1292r` descriptor in `protocentral_openview` (`lib/boards/descriptors/ads1292r.dart`): 57600 baud, pktType 2, 8-byte payload ECG/RESP/HR/RR as int16 LE, 125 Hz. Change one side only together with the other, in the same release. OpenView sketches print nothing but packets.
 - **RDATAC/SDATAC.** Registers cannot be read or written in RDATAC mode, and other opcodes are ignored there.
   - All register access goes through `updateRegister()` / `readRegister()`, which drop out of RDATAC and resume.
   - Never call `rawReadRegister()` / `rawWriteRegister()` / `sendCommand()` from a public method without the same wrapping.
@@ -28,7 +28,8 @@ Hardware validation still requires a physical board. Run `10.Diagnostics` and `0
 - **Default register values** reproduce the 1.x profile (CH1 resp gain 4, 32 kHz, 135°; CH2 ECG gain 12; RLD from CH2), plus DC lead-off on CH2.
   - Do not change the defaults without re-verifying on a real v4 board.
   - v4 changed the respiration input network, and the respiration amplitude depends on gain and phase.
-  - **Unverified:** v4 has 10 MΩ input bias resistors. 6 nA x 10 MΩ is only ~60 mV, which may never reach the 95% comparator threshold, so DC lead-off may need 22 nA or more, or AC lead-off. Bench-test before release.
+  - v4 netlist: RA (jack ring) goes through 51 kΩ to IN2P, LA (tip) through 51 kΩ to IN2N, and RL (sleeve) to RLDINV/RLDOUT. CH1 is AC-coupled from LA/RA (100 nF) and biased by 10 MΩ dividers.
+  - So CH2 = RA − LA, which is inverted Lead I. Lead-off on CH2 is not affected by the 10 MΩ resistors on IN1.
 - **The algorithms are tuned for 125 SPS.** The FIR coefficients and all timing constants assume it.
   - `RESP_MIN_AMPLITUDE` is in detector units, which are 32x the mean of the DC-blocked respiration counts.
   - The QRS windows (16-sample envelope, 15 + 20 maxima/refractory) were tuned on synthetic ECG to track 40-200 bpm.

@@ -52,11 +52,10 @@ void loop() {
         Serial.println(F("All electrodes connected"));
         return;
     }
+    // Electrode names follow the v4 breakout's jack wiring (see README)
     Serial.print(F("Lead off:"));
-    if (s.leadOff & ADS1292R_IN2P) Serial.print(F(" IN2P"));
-    if (s.leadOff & ADS1292R_IN2N) Serial.print(F(" IN2N"));
-    if (s.leadOff & ADS1292R_IN1P) Serial.print(F(" IN1P"));
-    if (s.leadOff & ADS1292R_IN1N) Serial.print(F(" IN1N"));
-    if (s.leadOff & ADS1292R_RLD) Serial.print(F(" RLD"));
+    if (s.leadOff & ADS1292R_ELECTRODE_RA) Serial.print(F(" RA"));
+    if (s.leadOff & ADS1292R_ELECTRODE_LA) Serial.print(F(" LA"));
+    if (s.leadOff & ADS1292R_ELECTRODE_RL) Serial.print(F(" RL"));
     Serial.println();
 }

@@ -33,6 +33,7 @@ Ground-up rewrite. **Breaking:** the 1.x API is removed. See "Migrating from 1.x
 - **On-chip measurements:** die temperature, AVDD and DVDD.
 - **v4 breakout support:** CLK output for multi-board clock sync, and GPIO1/GPIO2 control.
 - **Interrupt mode:** optional DRDY interrupt with a missed-sample counter.
+- `ADS1292R_ELECTRODE_RA` / `_LA` / `_RL` lead-off constants, mapped from the v4 netlist.
 - **Examples 01-10:** Serial Plotter, OpenView, heart and respiration rate, lead-off, self-test/noise, temperature/supply, interrupt-driven, multi-board sync, GPIO, diagnostics.
 - **Repo tooling:** `keywords.txt`, `CHANGELOG.md`, Arduino Lint and a 9-board compile workflow, and `scripts/build.sh`.
 
